@@ -24,6 +24,7 @@ RUN apt-get update \
       wget \
       x11vnc \
       xvfb \
+      icewm \
  && rm -rf /var/lib/apt/lists/*
 
 # Configure pulseaudio.
@@ -53,9 +54,9 @@ WORKDIR /home/df
 USER df
 
 # Install Dwarf Fortress.
-ARG DF_VERSION=47_04
-RUN wget http://www.bay12games.com/dwarves/df_${DF_VERSION}_linux.tar.bz2 \
- && tar xf df_${DF_VERSION}_linux.tar.bz2 \
- && rm df_${DF_VERSION}_linux.tar.bz2 \
- && mv df_linux/libs/libstdc++.so.6 df_linux/libs/libstdc++.so.6.disabled \
- && sed -i 's/[WINDOWED:YES]/[WINDOWED:NO]/' df_linux/data/init/init.txt
+#ARG DF_VERSION=47_04
+#RUN wget http://www.bay12games.com/dwarves/df_${DF_VERSION}_linux.tar.bz2 \
+ #&& tar xf df_${DF_VERSION}_linux.tar.bz2 \
+ #&& rm df_${DF_VERSION}_linux.tar.bz2 \
+ #&& mv df_linux/libs/libstdc++.so.6 df_linux/libs/libstdc++.so.6.disabled \
+ #&& sed -i 's/[WINDOWED:YES]/[WINDOWED:NO]/' df_linux/data/init/init.txt
