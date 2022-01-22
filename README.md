@@ -88,4 +88,4 @@ VNC session connects. We create a new instance of the `WebAudio` class, and tell
 it to start playing audio when a `keydown` event is received by the `canvas`
 tag. Presently this is hardcoded to `https://localhost:8081/websockify`. A more
 robust implementation would allow the audio URL to be set to different values
-depending on the environment.
+depending on the environment..
