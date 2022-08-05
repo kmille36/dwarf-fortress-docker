@@ -34,15 +34,15 @@ COPY default.pa client.conf /etc/pulse/
 # Force vnc_lite.html to be used for novnc, to avoid having the directory listing page.
 # Additionally, turn off the control bar. Finally, add a hook to start audio.
 COPY webaudio.js /usr/share/novnc/core/
-RUN ln -s /usr/share/novnc/vnc.html /usr/share/novnc/index.html \
+RUN ln -s /usr/share/novnc/vnc_lite.html /usr/share/novnc/index.html \
  && sed -i 's/display:flex/display:none/' /usr/share/novnc/app/styles/lite.css \
  && sed -i "/import RFB/a \
       import WebAudio from './core/webaudio.js'" \
-    /usr/share/novnc/vnc.html \
+    /usr/share/novnc/vnc_lite.html \
  && sed -i "/function connected(e)/a \
       var wa = new WebAudio('ws://localhost:8081/websockify'); \
       document.getElementsByTagName('canvas')[0].addEventListener('keydown', e => { wa.start(); });" \
-    /usr/share/novnc/vnc.html
+    /usr/share/novnc/vnc_lite.html
 
 # Configure supervisord.
 COPY supervisord.conf /etc/supervisor/supervisord.conf
