@@ -25,6 +25,7 @@ RUN apt-get update \
       x11vnc \
       xvfb \
       icewm \
+      firefox-esr \
  && rm -rf /var/lib/apt/lists/*
 
 # Configure pulseaudio.
